@@ -1,0 +1,17 @@
+Palindrome Linked-List (https://www.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1)
+
+You are given the head of a singly linked list of positive integers. 
+You have to check if the given linked list is palindrome or not.
+
+Solution:
+class Solution:
+    def isPalindrome(self, head):
+        def check(n):
+            nonlocal head
+            if not n:
+                return True
+            r = check(n.next) and n.data == head.data
+            head = head.next
+            return r
+        
+        return check(head)
